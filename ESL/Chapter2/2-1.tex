@@ -1,0 +1,38 @@
+\section*{2.1}
+
+\noindent
+We infer from the problem that $\hat{y}$ is the predicted probability of each 
+class for a given observation (because values of $\hat{y}$ sum to 1 and we are 
+attempting to classify on the largest value of $\hat{y}$). We are then asked to 
+show that classifying based on the element of $\hat{y}$ that is the largest 
+(i.e. the most likely/the class with the highest probability) is the same as 
+classifying based on the $k$ such that $||t_{k} - \hat{y}||$ is minimized.
+
+\vspace{5mm}
+\noindent
+Let $\hat{y}_{k}$ be $k^{th}$ entry of $\hat{y}$. Note that:
+
+\begin{gather*}
+%----------------------------------Line 1---------------------------------------
+||t_{k} - \hat{y}|| = 
+[t_{k} - \hat{y}]^{T} [t_{k} - \hat{y}] = 
+[t_{k}^{T} - \hat{y}^{T}] [t_{k} - \hat{y}] = \\
+%----------------------------------Line 2---------------------------------------
+t_{k}^{T} t_{k} - t_{k}^{T} \hat{y} - \hat{y}^{T} t_{k} + \hat{y}^{T} \hat{y} = 
+1 - \hat{y}_{k} - \hat{y}_{k} + ||\hat{y}|| = 
+1 - 2 \hat{y}_{k} + ||\hat{y}||
+\end{gather*}
+
+\vspace{5mm}
+\noindent
+We get $t_{k}^{T} t_{k} = 1$ because $t_{k} = 1$ only at the $k^{th}$ index and 
+0 elsewhere. For similar reasons, we have 
+$t_{k}^{T} \hat{y} = \hat{y}^{T} t_{k} = \hat{y}_{k}$.
+
+\vspace{5mm}
+\noindent
+Note that in the above, the $||\hat{y}||$ is constant across all classes. Thus 
+when we want to minimize 
+$||t_{k} - \hat{y}|| = 1 - 2 \hat{y}_{k} + ||\hat{y}||$ we pick 
+$\hat{y}_{k}$ that is the largest. That corresponds to finding the largest 
+$k$ in $\hat{y}$, as desired.
