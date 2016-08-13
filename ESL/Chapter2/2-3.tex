@@ -1,0 +1,75 @@
+\section*{2.3}
+
+\noindent
+We are asked to show that for $N$ data points uniformly distributed in a a 
+$p$-dimensional unit that the median distance from the center is such that:
+
+\begin{gather*}
+d(p, N) = (1 - \frac{1}{2^{\frac{1}{N}}})^{\frac{1}{p}}
+\end{gather*}
+
+\noindent
+The volume of a $p$-sphere is defined as:
+
+\begin{gather*}
+V = \frac{\pi^{\frac{p}{2}}}{\Gamma(\frac{n}{2} + 1)} \times r^{p}
+\end{gather*}
+
+\noindent
+Where $r$ is the radius. For a unit sphere, $r = 1$.
+
+\vspace{5mm}
+\noindent
+We now consider how long of a radius we would need for a $p$-dimensional 
+sub-sphere to encapsulate $x$ fraction of the volume of our unit sphere.
+
+\begin{gather*}
+%----------------------------Line 1---------------------------------------------
+V \times x = 
+\frac{\pi^{\frac{p}{2}}}{\Gamma(\frac{n}{2} + 1)} \times r^{p} \implies 
+\frac{\pi^{\frac{p}{2}}}{\Gamma(\frac{n}{2} + 1)} \times x = 
+\frac{\pi^{\frac{p}{2}}}{\Gamma(\frac{n}{2} + 1)} \times r^{p} \implies \\ 
+%----------------------------Line 2---------------------------------------------
+\implies
+r^{p} = x \implies 
+r = x^{\frac{1}{p}}
+\end{gather*}
+
+\noindent
+We can now interpret these fractions of volumes as probabilities. The 
+probability that a randomly sampled point is within $x^{\frac{1}{p}}$ of the 
+origin is equal to $x$. Then, the probability that it is outside of this 
+distance is $1 - x$. Then, the probability of all $N$ points being outside of 
+the distance $x^{\frac{1}{p}}$ is $(1 - x)^{N}$. 
+
+\vspace{5mm}
+\noindent
+We now have a relationship between the volume of a sub-sphere and the 
+probability of all $N$ data not lying within that sub-sphere. We also have a 
+relationship between the volume of the sub-sphere and the radius/the distance 
+from the origin of our original unit sphere. This radius corresponds to the 
+distance to the closest point. If we set our probability of all points lying 
+outside of the volume of our sub-sphere to $\frac{1}{2}$ (the median), we can 
+chain together these relationships to find the median distance to the closest 
+data point. First, we find the volume that corresponds to the probability that 
+all points our outside of this volume equaling $\frac{1}{2}$:
+
+\begin{gather*}
+(1 - x)^{N} = \frac{1}{2} \implies 
+1 - x = \frac{1}{2^{\frac{1}{N}}} \implies 
+x = (1 - \frac{1}{2^{\frac{1}{N}}})
+\end{gather*}
+
+\noindent
+Next, we relate this volume to its radius:
+
+\begin{gather*}
+r = 
+x^{\frac{1}{p}} = 
+(1 - \frac{1}{2^{\frac{1}{N}}})^{\frac{1}{p}}
+\end{gather*}
+
+\noindent
+And we are finished! We have the expression for the median distance from the 
+origin to the closest data point, and it is exactly the same as the formula 
+we wished to derive.

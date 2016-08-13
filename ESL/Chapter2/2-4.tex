@@ -1,0 +1,29 @@
+\section*{2.4}
+
+\noindent
+The multinormal distribution that we are sampling from is comprised of $p$
+independent standard normal distributions. From normal distribution theory, the 
+sum (and linear combination) of these $p$ normal distributions will also be 
+normal. We note then that $z_{i}$ is just a linear combination of these normal 
+random variables, so $z_{i}$ itself must be normal with mean $E(z_{i})$ and 
+variance $V(z_{i})$.
+
+\begin{gather*}
+E(z_{i}) = 
+E(a^{T} x_{i}) = 
+a^{T} E(x_{i}) = 
+a^{T} \overrightarrow{0} = 
+0 \\ 
+V(z_{i}) = 
+V(a^{T} x_{i}) = 
+\sum_{k = 1}^{p} V(a_{i} x_{i, k}) = 
+\sum_{k = 1}^{p} a_{i}^{2} V(x_{i, k}) = 
+\sum_{k = 1}^{p} a_{i}^{2} \times 1 = 
+1 \\
+\text{ because } a \text{ is unit length}
+\end{gather*}
+
+\noindent
+So $z_{i}$ is normal with mean $0$ and variance $1$. It is given that the target 
+point's distance from the origin is a chi-squared distribution with mean $p$, 
+which implies the distance is $p^{0.5}$.

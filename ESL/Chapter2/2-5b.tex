@@ -1,0 +1,61 @@
+\section*{2.5 b}
+
+\noindent
+From 2.27 and part a, and $E(X) = 0$ and $X^{T} X \rightarrow N Cov(X)$, we 
+have:
+
+\begin{gather*}
+\sigma^{2} + \sigma^{2} E_{x_{0}}[x_{0}^{T} (X^{T} X)^{-1} x_{0}]
+\end{gather*}
+
+\noindent
+Consider $E_{x_{0}}[x_{0}^{T} (X^{T} X)^{-1} x_{0}]$. $x_{0}$ is a $p \times 1$ 
+vector and $(X^{T} X)^{-1}$ will be $p \times p$, then 
+$x_{0}^{T} (X^{T} X)^{-1} x_{0}$ is just a scalar. This means we can take the 
+trace of this amount with out any consequence since it will just return itself. 
+To motivate a maneuver we will use later in the proof, we will use 
+$trace(A B) = trace(B A)$ with $A = x_{0}^{T} (X^{T} X)^{-1}$ and 
+$B = x_{0}$.
+
+\begin{gather*}
+%--------------------------Line 1-----------------------------------------------
+E_{x_{0}}[x_{0}^{T} (X^{T} X)^{-1} x_{0}] = 
+E_{x_{0}}[trace(x_{0}^{T} (X^{T} X)^{-1} x_{0})] = \\
+%--------------------------Line 2-----------------------------------------------
+=
+E_{x_{0}}[trace(x_{0} x_{0}^{T} (X^{T} X)^{-1})] = 
+E_{x_{0}}[trace(x_{0} x_{0}^{T} \frac{(Cov(X))^{-1}}{N})] = \\
+%--------------------------Line 3-----------------------------------------------
+=
+trace[E_{x_{0}}(x_{0} x_{0}^{T} \frac{(Cov(X))^{-1}}{N})] \\
+%--------------------------Line 3-----------------------------------------------
+\text{ since expectation and trace linear operators.}
+\end{gather*}
+
+\noindent
+We now use the fact that $Cov(X)$ not depending on $x_{0}$ and 
+$E_{x_{0}}(x_{0} x_{0}^{T} = Cov(x_{0}) = \sigma^{2}$. We also note that on our 
+original assumption of the variance of $X$, $Cov(X) = \sigma^{2} \times I_{p} 
+\implies (Cov(X))^{-1} = \frac{1}{\sigma^{2}} \times I_{p}$. Then we have: 
+
+\begin{gather*}
+%--------------------------Line 1-----------------------------------------------
+trace[E_{x_{0}}(x_{0} x_{0}^{T} \frac{(Cov(X))^{-1}}{N})] = 
+trace[\frac{(Cov(X))^{-1}}{N} E_{x_{0}}(x_{0} x_{0}^{T})] = \\
+%--------------------------Line 2-----------------------------------------------
+=
+trace[\frac{1}{N \sigma^{2}} I_{p} Cov(x_{0})] = 
+trace[\frac{1}{N \sigma^{2}} I_{p} \sigma^{2}] = 
+trace[\frac{1}{N} I_{p}] = 
+\frac{1}{N} trace[I_{p}] = 
+\frac{p}{N}
+\end{gather*}
+
+\noindent
+Now we substitute this result into our original equation:
+
+\begin{gather*}
+\sigma^{2} + \sigma^{2} E_{x_{0}}[x_{0}^{T} (X^{T} X)^{-1} x_{0}] = 
+\sigma^{2} + \sigma^{2} \times \frac{p}{N} = 
+\sigma^{2} \frac{p}{N} + \sigma^{2}
+\end{gather*}
